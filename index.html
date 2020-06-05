@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chrome Animated Text Color bug</title>
+<style>
+body {
+  margin: 0;
+  padding: 1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+html {
+  transition: color 0.25s;
+  background-color: #ffffff;
+  color: #333333;
+}
+html.dark {
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+}
+.content {
+  max-width: 800px;
+}
+</style>
+</head>
+<body>
+
+<div class="content">
+  <div style="text-align: center;"><label><input type="checkbox" id="checkbox" /><span>Toggle dark mode</span></label></div>
+  <br>
+  <div>This text should be black when the background is white, and white when the background is black.</div>
+<div>
+
+<script>
+document.querySelector('#checkbox').addEventListener('change', (e) => {
+  document.documentElement.classList.toggle('dark', e.currentTarget.checked);
+}, false);
+</script>
+
+</body>
+</html>
